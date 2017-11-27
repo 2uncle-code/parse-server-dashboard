@@ -1,4 +1,5 @@
 var express = require('express');
+$config=global.config=require('./config');
 var ParseServer =require('./server/Parse_Server');
 var ParseDashboard = require('./server/Parse_Dashboard');
 
@@ -12,7 +13,7 @@ app.use('/parse', ParseServer);
 app.use('/dashboard', ParseDashboard);
  
 var httpServer = require('http').createServer(app);
-httpServer.listen(4040,function(){
+httpServer.listen($config.serverPort,function(){
     console.log('parse-server-dashboard running on port 4040.');
 });
 
