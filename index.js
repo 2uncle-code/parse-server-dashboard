@@ -1,5 +1,5 @@
 var express = require('express');
-$config=global.config=require('./config');
+$config=require('./config');
 var ParseServer =require('./server/Parse_Server');
 var ParseDashboard = require('./server/Parse_Dashboard');
 
@@ -12,9 +12,11 @@ app.use('/parse', ParseServer);
 // 把 Parse Dashboard 挂载在 /dashboard
 app.use('/dashboard', ParseDashboard);
  
-var httpServer = require('http').createServer(app);
-httpServer.listen($config.serverPort,function(){
-    console.log('parse-server-dashboard running on port 4040.');
+var ParseHttpServer = require('http').createServer(app);
+ParseHttpServer.listen($config.serverPort,function(){
+    console.log('parse-server parse-dashboard are  running on port 4040.');
 });
+
+var appHttpServer=require('./app/index');
 
 
