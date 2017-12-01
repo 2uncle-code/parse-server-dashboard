@@ -1,22 +1,35 @@
+/**
+ * This file is your app entry.
+ */
+
+
+
 var express = require('express');
+
+//Load the app configs
 $config=require('./config');
-var ParseServer =require('./server/Parse_Server');
-var ParseDashboard = require('./server/Parse_Dashboard');
+
+var path = require('path');
 
 
- 
 var app = express();
-// 把 Parse Server 挂载在 /parse
-app.use('/parse', ParseServer);
 
-// 把 Parse Dashboard 挂载在 /dashboard
-app.use('/dashboard', ParseDashboard);
+//Load the routes
+require('./app/Routes')(app);
+
+//Setting the view engine and template folder
+app.set('views', path.join(__dirname,  'app\\Views'));
+app.set('view engine', 'pug');
+
  
+
+
+ //Initialise the web server
 var ParseHttpServer = require('http').createServer(app);
-ParseHttpServer.listen($config.serverPort,function(){
-    console.log('parse-server parse-dashboard are  running on port 4040.');
+ParseHttpServer.listen($config.env.appPort,function(){
+    console.log('parse-server parse-dashboard are  running on port %s.',$config.env.appPort);
 });
 
-var appHttpServer=require('./app/index');
+
 
 
