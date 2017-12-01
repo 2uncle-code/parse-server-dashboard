@@ -2,3 +2,4 @@
 /logs
 # Ignore .env configuration files
 .env
+/.env
