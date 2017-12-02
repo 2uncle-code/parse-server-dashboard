@@ -9,7 +9,10 @@ var express = require('express');
 //Load the app configs
 $config=require('./config');
 
-var path = require('path');
+//load the app Helper
+$helper=require('./app/Helpers');
+
+//var path = require('path');
 
 
 var app = express();
@@ -17,9 +20,10 @@ var app = express();
 //Load the routes
 require('./app/Routes')(app);
 
-//Setting the view engine and template folder
-app.set('views', path.join(__dirname,  'app\\Views'));
-app.set('view engine', 'pug');
+// //Setting the view engine and template folder
+// app.set('views', path.join(__dirname,  'app\\Views'));
+// app.set('view engine', 'pug');
+
 
  
 

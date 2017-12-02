@@ -15,13 +15,17 @@ var ParseDashboard = require('../Server/Parse_Dashboard');
 
 module.exports = router=function(app)
 {
-     app.get('/', mainController.index);
-     app.get('/about', mainController.about);
-     app.get('/books', mainController.books);
+        //Setting the view engine and template folder
+    app.set('views', $helper.getTheme);
+    app.set('view engine', 'pug');
+
+    app.get('/', mainController.index);
+    app.get('/about', mainController.about);
+    app.get('/books', mainController.books);
     
-     app.use($config.env.mountPath, ParseServer);
-     app.use($config.env.dashBoardMountPath, ParseDashboard);
-     app.get('/666',function(req,res){
+    app.use($config.env.mountPath, ParseServer);
+    app.use($config.env.dashBoardMountPath, ParseDashboard);
+    app.get('/666',function(req,res){
     res.send('66666');
     })
 };
