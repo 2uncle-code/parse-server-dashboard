@@ -20,13 +20,6 @@ var app = express();
 //Load the routes
 require('./app/Routes')(app);
 
-// //Setting the view engine and template folder
-// app.set('views', path.join(__dirname,  'app\\Views'));
-// app.set('view engine', 'pug');
-
-
- 
-
 
  //Initialise the web server
 var ParseHttpServer = require('http').createServer(app);
