@@ -1,1 +1,5 @@
 /node_modules
+/logs
+# Ignore .env configuration files
+.env
+/.env
