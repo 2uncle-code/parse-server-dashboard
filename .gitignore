@@ -1,5 +1,8 @@
 /node_modules
+<<<<<<< HEAD
 /logs
 # Ignore .env configuration files
 .env
 /.env
+=======
+>>>>>>> parent of c26fd8a... fulfill config/index.js with global settings
