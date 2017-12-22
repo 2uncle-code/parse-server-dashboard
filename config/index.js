@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /**
  * This file let you define your own necessary options for your appliaction.
  */
@@ -16,8 +16,4 @@ config ={
 
 config.env=process.env;
 module.exports=config;
-=======
-module.exports ={
-    
-};
->>>>>>> parent of c26fd8a... fulfill config/index.js with global settings
+
